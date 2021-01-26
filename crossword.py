@@ -1,13 +1,7 @@
-# CPS109 Assignment 2
-# Name: Alyanna Santos
-# Student ID: 500962963
+# Created by: Alyanna Santos
 
-# I received significant help from Flavio Ferreria and Ralph Liton :)
-
-# -----------------------------------------------------------------------------------------
 
 # printboard(board) function prints out the 20x20 matrix with borders and coordinates.
-
 def printboard(board):
     print(' 01234567890123456789')
     print(blank + '_' * 20)
@@ -25,10 +19,7 @@ def printboard(board):
 blank = ' '
 board = [[blank] * 20 for i in range(20)]
 
-# -----------------------------------------------------------------------------------------
-
 # addFirstWord function adds the first word in the middle of the 20x20 matrix.
-
 def addFirstWord(board, word):
     middle = (len(word)) // 2
     index = 0
@@ -47,11 +38,9 @@ def addFirstWord(board, word):
                 index += 1
         return True
 
-# -----------------------------------------------------------------------------------------
 
 # adjacentVertical and adjacentHorizontal functions are used to make sure the placement of a
 # word is not adjacent to any letter which is not in the word in which the word intersects.
-
 def adjacentVertical(row, col):
     if board[row][col + 1] != blank:
         return True
@@ -68,13 +57,9 @@ def adjacentHorizontal(row, col):
     else:
         return False
 
-# -----------------------------------------------------------------------------------------
-
 # checkVertical and checkHorizontal functions are used to check if the word can be placed
 # vertically or horizontally along the matrix containing words in list.
-
 legalError = ''
-
 def checkVertical(board, word, row, col):
     global legalError
     if len(word) > 20 - row:
@@ -111,11 +96,8 @@ def checkHorizontal(board, word, row, col):
                 legalError = 'no matching letter'
                 return False
 
-# -----------------------------------------------------------------------------------------
-
 # addVertical and addHorizontal functions are used to place all the words that can be placed
 # legally onto the crossword into the 20x20 matrix.
-
 def addVertical(board, word):
     for row in range(len(board) - 1):
         for col in range(len(board) - 1):
@@ -140,10 +122,7 @@ def addHorizontal(board, word):
                 return True
     return False
 
-# -----------------------------------------------------------------------------------------
-
 # crossword(L) function
-
 def crossword(L):
     global legalError
     for word in range(len(L)):
@@ -152,10 +131,6 @@ def crossword(L):
                 print(L[word], 'reaches outside grid')
             else:
                 addFirstWord(board, L[word])
-    if L[5] == 'burr':
-        print(L[5], 'has no matching letter')
-    if L[4] == 'burr':
-        print(L[4], 'has no matching letter')
     for index in range(1, len(L)):
         if index % 2 == 1:
             if len(L[index]) > 20:
@@ -172,7 +147,7 @@ def crossword(L):
 
 # -----------------------------------------------------------------------------------------
 
-# program testing with 3 lists
+# Testng:
 
 # For L, 'burr' does not have matching letters, therefore not added into the crossword.
 L = ['clowning', 'incline', 'plan', 'apple', 'temp', 'burr']
@@ -199,6 +174,3 @@ printboard(board)
 print()
 blank = ' '
 board = [[blank] * 20 for i in range(20)]
-
-# -----------------------------------------------------------------------------------------
-# end
