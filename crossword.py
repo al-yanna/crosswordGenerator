@@ -1,6 +1,5 @@
 # Created by: Alyanna Santos
 
-
 # printboard(board) function prints out the 20x20 matrix with borders and coordinates.
 def printboard(board):
     print(' 01234567890123456789')
